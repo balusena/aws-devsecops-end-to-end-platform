@@ -212,7 +212,7 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 
 ![roboshop-shipping-transactions-new-relic](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-shipping-transactions-new-relic.png)
 
-### Database Segment Time (APM)
+### Database Segment Time 
 - Time spent on database queries contributing to latency.
 - Highlights segments where optimization is needed to reduce response times.
 

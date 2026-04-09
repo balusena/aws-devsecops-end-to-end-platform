@@ -131,7 +131,8 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 ## 🖼️ Application Screenshots
 
 **Application & Microservices Flow:**
-![roboshop-application-flow](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-application-flow.png)
+[//]: # (![roboshop-application-flow]&#40;https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-application-flow.png&#41;)
+![roboshop-application-flow](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-application-flow.png)
 
 **Screenshot displaying Roboshop landing page and list of Categories:**
 ![roboshop-landing-page-categories-list](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-landing-page-categories-list.png)
@@ -158,10 +159,10 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 ![roboshop-review-order-quantity](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-review-order-quantity.png)
 
 **Screenshot displaying the payment confirmation with placed order and Order ID details:**
-![roboshop-payment-confirmation-order](https://github.com/balusena/aws-devsecops-end-to-end-platform/app/images/roboshop-payment-confirmation-order.png)
+![roboshop-payment-confirmation-order](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-payment-confirmation-order.png)
 
 **Screenshot displaying the order history with Order ID, Items, Total price with shipping details:**
-![roboshop-full-order-details-history](https://github.com/balusena/aws-devsecops-end-to-end-platform/app/images/roboshop-full-order-details-history.png)
+![roboshop-full-order-details-history](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-full-order-details-history.png)
 
 ## 📊 Monitoring & Observability Dashboards
 

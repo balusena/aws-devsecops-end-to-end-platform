@@ -182,6 +182,81 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 
 ## 📊 Monitoring & Observability Dashboards
 
+### Load Testing & Performance Observations
+
+- HPA, node autoscaling, and pod health checks are enabled.
+- Resources have been adjusted to handle higher load.
+- Latency is still noticeable, likely due to slow database queries or application processing.
+- Distributed tracing is recommended to pinpoint the exact bottleneck.
+
+#### Load Test Scenario 1
+![roboshop-load-test-1](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-load-test-1.png)
+
+#### Load Test Scenario 2
+![roboshop-load-test-2](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-load-test-2.png)
+
+### APM Insights
+- Most of the transaction time is spent on database queries.
+- Application processing contributes only a minor portion to overall latency.
+
+![roboshop-load-test-db-error](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-load-test-db-error.png)
+
+#### Shipping Service Overview
+- High-level view of the Shipping service in New Relic showing overall health, throughput, and error rates.
+
+![roboshop-shipping-new-relic](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-shipping-new-relic.png)
+
+### Shipping Transactions
+- Detailed breakdown of transactions in the Shipping service.
+- Shows latency per operation and identifies which requests are slower than expected.
+
+![roboshop-shipping-transactions-new-relic](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-shipping-transactions-new-relic.png)
+
+### Database Segment Time (APM)
+- Time spent on database queries contributing to latency.
+- Highlights segments where optimization is needed to reduce response times.
+
+![roboshop-shipping-database-segment-time-new-relic](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-shipping-database-segment-time-new-relic.png)
+
+### Optimization with Redis Caching
+- Redis was deployed for Shipping to offload database queries.
+- Latency has partially stabilized, showing noticeable improvement, though it hasn’t fully resolved the issue yet.
+
+![roboshop-load-test-enable-db-redis](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-load-test-enable-db-redis.png)
+
+### CI/CD Impact During Load
+- During load, a CI/CD deployment of the Shipping application caused temporary errors.
+- These errors were deployment-related and do not indicate system issues.
+
+![roboshop-load-test-shipping-cicd](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-load-test-shipping-cicd.png)
+
+### Post-Fix Load Testing
+- Fixed database ignore settings for Shipping during deployment.
+- Increased maximum resource limits for the service.
+- Result: Application sustained the load successfully with no errors.
+
+![roboshop-load-test-error-reduction](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-load-test-error-reduction.png)
+
+### HPA Improvements
+
+#### Before HPA
+- Roboshop experienced higher latency under load.
+- The application could not scale pods automatically, causing performance bottlenecks.
+
+![roboshop-before-hpa-more-latency](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-before-hpa-more-latency.png)
+
+#### After Adding HPA (Min 2 Pods)
+- Automatic pod scaling helped distribute traffic evenly.
+- Latency was reduced and performance improved during peak usage.
+
+![roboshop-adding-hpa-min-2-pods](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-adding-hpa-min-2-pods.png)
+
+#### HPA Handling Load Efficiently
+- Load was not perfectly even across all pods, but HPA-managed pods handled traffic efficiently.
+- Application responses remained good with reduced latency.
+
+![roboshop-adding-hpa-response-good](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-adding-hpa-response-good.png)
+
 ## 👥 Who Is This For?
 
 > [!IMPORTANT]

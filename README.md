@@ -134,34 +134,34 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 ![roboshop-application-flow](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-application-flow.png)
 
 **Screenshot displaying Roboshop landing page and list of Categories:**
-![roboshop-landing-page-categories-list](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-landing-page-categories-list.png)
+![roboshop-landing-page-categories-list](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-landing-page-categories-list.png)
 
 **Screenshot displaying the Login/Register page to register the user to use Roboshop Application:**
-![roboshop-login-register](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-login-register.png)
+![roboshop-login-register](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-login-register.png)
 
 **Screenshot displaying the registered user information after login into the Roboshop Application:**
-![roboshop-register-user-information](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-register-user-information.png)
+![roboshop-register-user-information](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-register-user-information.png)
 
 **Screenshot displaying the empty cart for user bala senapathi before making the order:**
-![roboshop-empty-user-cart](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-empty-user-cart.png)
+![roboshop-empty-user-cart](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/images/main/app/roboshop-empty-user-cart.png)
 
 **Screenshot displaying the addition of items to the user bala senapathi cart from list of categories:**
-![roboshop-adding-item-to-user-cart](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-adding-item-to-user-cart.png)
+![roboshop-adding-item-to-user-cart](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-adding-item-to-user-cart.png)
 
 **Screenshot displaying the Shopping cart for the user bala senapathi:**
-![roboshop-shopping-user-cart](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/images/app/roboshop-shopping-user-cart.png)
+![roboshop-shopping-user-cart](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/main/images/app/roboshop-shopping-user-cart.png)
 
 **Screenshot displaying the shipping information across the world with country and location info:**
-![roboshop-shipping-information](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/images/app/roboshop-shipping-information.png)
+![roboshop-shipping-information](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/main/images/app/roboshop-shipping-information.png)
 
 **Screenshot displaying the Review of order with Quantity, Item Name and Total Price:**
-![roboshop-review-order-quantity](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/images/app/roboshop-review-order-quantity.png)
+![roboshop-review-order-quantity](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/main/images/app/roboshop-review-order-quantity.png)
 
 **Screenshot displaying the payment confirmation with placed order and Order ID details:**
-![roboshop-payment-confirmation-order](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/images/app/roboshop-payment-confirmation-order.png)
+![roboshop-payment-confirmation-order](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/main/images/app/roboshop-payment-confirmation-order.png)
 
 **Screenshot displaying the order history with Order ID, Items, Total price with shipping details:**
-![roboshop-full-order-details-history](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/images/app/roboshop-full-order-details-history.png)
+![roboshop-full-order-details-history](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/main/images/app/roboshop-full-order-details-history.png)
 
 ## 📊 Monitoring & Observability Dashboards
 

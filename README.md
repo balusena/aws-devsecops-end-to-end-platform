@@ -149,7 +149,7 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 ![roboshop-adding-item-to-user-cart](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-adding-item-to-user-cart.png)
 
 **Screenshot displaying the Shopping cart for the user bala senapathi:**
-![roboshop-shopping-user-cart](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/main/images/app/roboshop-shopping-user-cart.png)
+![roboshop-shopping-user-cart](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-shopping-user-cart.png)
 
 **Screenshot displaying the shipping information across the world with country and location info:**
 ![roboshop-shipping-information](https://raw.githubusercontent.com/aws-devsecops-end-to-end-platform/main/images/app/roboshop-shipping-information.png)

@@ -40,46 +40,46 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 ## 🔹 How Everything Works Together
 
 1. **Packer builds images → `roboshop-packer-images`**
-    - Creates AMIs for EC2 instances and EKS nodes with pre-installed dependencies and security hardening.
+    - **Creates AMIs for EC2 instances and EKS nodes with pre-installed dependencies and security hardening.**
 
 2. **Terraform creates infrastructure → `roboshop-terraform`**
-    - Provisions EC2 instances, VPCs, subnets, route tables, EKS cluster with node groups, and supporting tools like Vault, ELK stack, and GitHub Runner.
+    - **Provisions EC2 instances, VPCs, subnets, route tables, EKS cluster with node groups, and supporting tools like Vault, ELK stack, and GitHub Runner.**
 
 3. **GitHub Actions runs CI/CD pipelines → `roboshop-github-actions`**
-    - Automates builds, tests, Docker image creation, and deployment triggers.
+    - **Automates builds, tests, Docker image creation, and deployment triggers.**
 
 4. **ArgoCD with Helm deploys apps into EKS → `roboshop-helm`**
-    - Ensures version-controlled, consistent deployments using Helm charts.
+    - **Ensures version-controlled, consistent deployments using Helm charts.**
 
 5. **Configuration values fetched via Vault → `roboshop-config-values`**
-    - Securely injects secrets and environment specific configurations into Kubernetes pods using External-Secrets.
+    - **Securely injects secrets and environment specific configurations into Kubernetes pods using External-Secrets.**
 
 6. **Ansible configures OS-level automation → `roboshop-ansible`**
-    - Automates system setup, package installation, and application dependencies.
+    - **Automates system setup, package installation, and application dependencies.**
 
 7. **Application runs via Docker images → built and deployed using GitHub Actions**
 
 8. **Traffic management**
-    - NLB handles internal traffic (Layer-4)
-    - ALB handles external traffic (Layer-7)
+    - **NLB handles internal traffic (Layer-4).**
+    - **ALB handles external traffic (Layer-7).**
 
 9. **Security**
-    - North-South: WAF, HTTPS, TLS/SSL
-    - East-West: Istio Service Mesh for mTLS and policy enforcement
+    - **North-South: WAF, HTTPS, TLS/SSL.**
+    - **East-West: Istio Service Mesh for mTLS and policy enforcement.**
 
 10. **Data protection**
-    - In transit: HTTPS/TLS
-    - At rest: AWS KMS
+    - **In transit: HTTPS/TLS.**
+    - **At rest: AWS KMS.**
 
 11. **Monitoring & Observability**
-    - Metrics: Prometheus, New Relic
-    - Visualization: Grafana, Kiali (Istio Service Mesh)
-    - Logging: ELK Stack
-    - Tracing: Jaeger (Distributed Tracing)
-    - Alerts: Prometheus Alertmanager (emails via Amazon SES), New Relic
+    - **Metrics: Prometheus, New Relic.**
+    - **Visualization: Grafana, Kiali (Istio Service Mesh).**
+    - **Logging: ELK Stack.**
+    - **Tracing: Jaeger (Distributed Tracing).**
+    - **Alerts: Prometheus Alertmanager (emails via Amazon SES), New Relic.**
 
 12. **Automation**
-    - Bash/Python scripts for operational tasks
+    - **Bash/Python scripts for operational tasks.**
 
 ## 🔹 Project Layers
 
@@ -212,7 +212,7 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 
 ![roboshop-shipping-transactions-new-relic](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-shipping-transactions-new-relic.png)
 
-### Database Segment Time 
+### Database Segment Time
 - Time spent on database queries contributing to latency.
 - Highlights segments where optimization is needed to reduce response times.
 

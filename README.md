@@ -15,7 +15,6 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 
 ![Architecture](https://github.com/balusena/aws-devsecops-end-to-end-platform/blob/main/roboshop_architecture.png)
 
-
 ## 🔗 Tools Tech Stack
 
 - **Cloud:** AWS (EKS, EC2, VPC, ALB, NLB, KMS, WAF)
@@ -61,8 +60,8 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 7. **Application runs via Docker images → built and deployed using GitHub Actions**
 
 8. **Traffic management**
-    - ALB handles external traffic (Layer-7)
     - NLB handles internal traffic (Layer-4)
+    - ALB handles external traffic (Layer-7)
 
 9. **Security**
     - North-South: WAF, HTTPS, TLS/SSL
@@ -82,12 +81,11 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 12. **Automation**
     - Bash/Python scripts for operational tasks
 
-
 ## 🔹 Project Layers
 
 ### 1. [roboshop-terraform](https://github.com/baludevopsb85/roboshop-terraform) → 🏗️ Infrastructure Layer
 **Purpose:** Defines and provisions AWS infrastructure  
-**Manages:** Environments (Dev/Prod), GitHub Workflows, Helm Charts, Vault, ELK, GitHub Runner, ELB (ALB/NLB), VPC, EKS, EC2, IAM roles, ECR, KMS, WAF  
+**Manages:** Environments (Dev/Stage/Prod), GitHub Workflows, Helm Charts, Vault, ELK, GitHub Runner, ELB (ALB/NLB), VPC, EKS, EC2, IAM roles, ECR, KMS, WAF  
 **Why:** Automates infrastructure creation, ensures reproducibility, supports multi-environment deployment
 
 ### 2. [roboshop-helm](https://github.com/baludevopsb85/roboshop-helm) → 🚀 Application Deployment Layer
@@ -125,10 +123,10 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 - [roboshop-payment](https://github.com/baludevopsb85/roboshop-payment)
 - [roboshop-shipping](https://github.com/baludevopsb85/roboshop-shipping)
 - [roboshop-dispatch](https://github.com/baludevopsb85/roboshop-dispatch)
+
 **Contains:** roboshop-frontend, roboshop-catalogue, roboshop-cart, roboshop-user, roboshop-payment, roboshop-shipping, roboshop-dispatch
 **Purpose:** Core application code and business logic  
 **Manages:** Microservices, Dockerfiles, CI/CD workflows, app configs
-
 
 ## 👥 Who Is This For?
 
@@ -140,30 +138,25 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 > - **Developers**: Understand the infrastructure behind your applications.
 > - **DevOps Newcomers**: Transform from beginner to expert with in-depth concepts and hands-on projects.
 
-
 ## 🛠️ How to Use This Repository
 
 > [!NOTE]
 > 1. **Explore the Categories**: Navigate through the folders to find the tool or technology you’re interested in.
 > 2. **Use the Repositories**: Each repository is designed to provide quick access to the most important concepts and projects.
 
-
 ## 🤝 Contributions Welcome!
 
 We believe in the power of community! If you have a tip, command, or configuration that you'd like to share, please contribute to this repository. Whether it’s a new tool or an addition to an existing content, your input is valuable.
 
-
 ## 📢 Stay Updated
 
 This repository is constantly evolving with new tools and updates. Make sure to ⭐ star this repo to keep it on your radar!
-
 
 ## Liking the Project?
 
 # ⭐❤️
 
 If you find this project helpful, please consider giving it a ⭐! It helps others discover the project and keeps me motivated to improve it.
-
 
 Thank you for your support!
 ---

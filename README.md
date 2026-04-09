@@ -124,6 +124,7 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 - [roboshop-shipping](https://github.com/baludevopsb85/roboshop-shipping)
 - [roboshop-dispatch](https://github.com/baludevopsb85/roboshop-dispatch)
 
+
 **Contains:** frontend, catalogue, cart, user, payment, shipping, dispatch
 **Purpose:** Core application code and business logic  
 **Manages:** Microservices, Dockerfiles, CI/CD workflows, app configs

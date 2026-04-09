@@ -126,7 +126,44 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 
 **Purpose:** Core application code and business logic   
 **Manages:** Microservices, Dockerfiles, CI/CD workflows, app configs  
-**Contains:** frontend, catalogue, cart, user, payment, shipping, dispatch  
+**Contains:** frontend, catalogue, cart, user, payment, shipping, dispatch
+
+## 🖼️ Application Screenshots
+
+**Application & Microservices Flow:**
+- [roboshop-application-flow](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-application-flow.png)
+
+**Screenshot displaying Roboshop landing page and list of Categories:**
+- [roboshop-landing-page-categories-list](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-landing-page-categories-list.png)
+
+**Screenshot displaying the Login/Register page to register the user to use Roboshop Application:**
+- [roboshop-login-register](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-login-register.png)
+
+**Screenshot displaying the registered user information after login into the Roboshop Application:**
+- [roboshop-register-user-information](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-register-user-information.png)
+
+**Screenshot displaying the empty cart for user bala senapathi before making the order:**
+- [roboshop-empty-user-cart](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-empty-user-cart.png)
+
+**Screenshot displaying the addition of items to the user bala senapathi cart from list of categories:**
+- [roboshop-adding-item-to-user-cart](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-adding-item-to-user-cart.png)
+
+**Screenshot displaying the Shopping cart for the user bala senapathi:**
+- [roboshop-shopping-user-cart](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-shopping-user-cart.png)
+
+**Screenshot displaying the shipping information across the world with country and location info:**
+- [roboshop-shipping-information](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-shipping-information.png)
+
+**Screenshot displaying the Review of order with Quantity, Item Name and Total Price:**
+- [roboshop-review-order-quantity](https://github.com/balusena/aws-devsecops-end-to-end-platform/images/app/roboshop-review-order-quantity.png)
+
+**Screenshot displaying the payment confirmation with placed order and Order ID details:**
+- [roboshop-payment-confirmation-order](https://github.com/balusena/aws-devsecops-end-to-end-platform/app/images/roboshop-payment-confirmation-order.png)
+
+**Screenshot displaying the order history with Order ID, Items, Total price with shipping details:**
+- [roboshop-full-order-details-history](https://github.com/balusena/aws-devsecops-end-to-end-platform/app/images/roboshop-full-order-details-history.png)
+
+## 📊 Monitoring & Observability Dashboards
 
 ## 👥 Who Is This For?
 
@@ -169,5 +206,3 @@ DevSecOps Engineer | Cloud & Automation | MLOps | AIOps | GitOps Specialist
 
 ---
 Made with ❤️ and passion to contribute to the DevOps community by [Bala Senapathi](https://github.com/balusena)
-
-

@@ -1,6 +1,6 @@
-# 🔥 AWS DevSecOps End-to-End Platform
+# ⭐ AWS DevSecOps End-to-End Platform
 
-## 🔥 Overview
+## 🔹 Overview
 
 The Roboshop project is a microservices-based e-commerce application deployed on **AWS** using modern **DevOps practices**. **Packer** builds custom AMIs for EC2 instances and EKS nodes, while **Terraform** provisions the full infrastructure, including VPCs, subnets, EC2 databases, and an EKS cluster with both Spot and On-Demand node groups. **Cluster Autoscaler** ensures nodes scale automatically as pods increase with traffic, while **Horizontal Pod Autoscaler (HPA)** dynamically scales microservices based on CPU, memory, or custom metrics.
 
@@ -38,7 +38,7 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 - Full Observability (Metrics, Logs, Traces)
 - Production Ready AWS Architecture
 
-## 🔥 How Everything Works Together
+## 🔹 How Everything Works Together
 
 1. **Packer builds images → `roboshop-packer-images`**
     - Creates AMIs for EC2 instances and EKS nodes with pre-installed dependencies and security hardening.
@@ -176,3 +176,4 @@ DevSecOps Engineer | Cloud & Automation | MLOps | AIOps | GitOps Specialist
 
 ---
 Made with ❤️ and passion to contribute to the DevOps community by [Bala Senapathi](https://github.com/balusena)
+

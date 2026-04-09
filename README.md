@@ -176,7 +176,7 @@ Overall, Roboshop combines **automation, scalability, security, and observabilit
 
 ## 🚀 Load Testing Roboshop Application
 
-**Screenshot displaying the running of load test on Roboshop application with 1000 Clients for 1 Hour:**
+**Screenshot displaying running of load test on Roboshop application with 1000 Clients for 1 Hour:**
 
 ![roboshop-load-test](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-load-test.png)
 

@@ -298,5 +298,3 @@ DevSecOps Engineer | Cloud & Automation | MLOps | AIOps | GitOps Specialist
 
 ---
 Made with ❤️ and passion to contribute to the DevOps community by [Bala Senapathi](https://github.com/balusena)
-
-

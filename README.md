@@ -10,6 +10,7 @@ Traffic management uses **ALB** for external requests (Layer-7) and **NLB** for 
 
 Overall, Roboshop combines **automation, scalability, security, and observability** to deliver a robust, highly available e-commerce platform on AWS.
 
+---
 
 ## 📂 Project Structure
 
@@ -343,6 +344,9 @@ aws-devsecops-end-to-end-platform/
         └── server.js
         
 ```
+
+---
+
 ## 📊 Architecture Diagram
 
 ![Architecture](https://github.com/balusena/aws-devsecops-end-to-end-platform/blob/main/roboshop_architecture.png)
@@ -358,6 +362,8 @@ aws-devsecops-end-to-end-platform/
 - **Security:** Vault, Istio (mTLS), TLS/SSL
 - **Observability:** Prometheus, Grafana, ELK, New Relic, Kiali, Jaeger
 
+---
+
 ## ✨ Key Features
 
 - End to End DevSecOps Implementation
@@ -368,6 +374,8 @@ aws-devsecops-end-to-end-platform/
 - Auto Scaling (HPA + Cluster Autoscaler)
 - Full Observability (Metrics, Logs, Traces)
 - Production Ready AWS Architecture
+
+---
 
 ## 🔹 How Everything Works Together
 
@@ -413,6 +421,8 @@ aws-devsecops-end-to-end-platform/
 12. **Automation**
     - Bash/Python scripts for operational tasks.
 
+---
+
 ## 🔹 Project Layers
 
 ### 1. [roboshop-terraform](https://github.com/baludevopsb85/roboshop-terraform) → 🏗️ Infrastructure Layer
@@ -445,6 +455,7 @@ aws-devsecops-end-to-end-platform/
 **Manages:** Package installation, system setup, app dependencies  
 **Why:** Reusable automation scripts, used by Packer for image creation
 
+
 ### 7. APP → 🧪 Application Layer
 
 **Microservices & Repositories:**
@@ -459,6 +470,8 @@ aws-devsecops-end-to-end-platform/
 **Purpose:** Core application code and business logic   
 **Manages:** Microservices, Dockerfiles, CI/CD workflows, app configs  
 **Contains:** frontend, catalogue, cart, user, payment, shipping, dispatch
+
+---
 
 ## 🖼️ Application Screenshots
 
@@ -506,11 +519,15 @@ aws-devsecops-end-to-end-platform/
 
 ![roboshop-full-order-details-history](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-full-order-details-history.png)
 
+---
+
 ## 🚀 Load Testing Roboshop Application
 
 **Screenshot displaying running of load test on Roboshop application with 1000 Clients for 1 Hour:**
 
 ![roboshop-load-test](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-load-test.png)
+
+---
 
 ## 📊 Monitoring & Observability Dashboards
 
@@ -589,6 +606,8 @@ aws-devsecops-end-to-end-platform/
 
 ![roboshop-adding-hpa-response-good](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/load/roboshop-adding-hpa-response-good.png)
 
+---
+
 ## 👥 Who Is This For?
 
 > [!IMPORTANT]
@@ -599,19 +618,27 @@ aws-devsecops-end-to-end-platform/
 > - **Developers**: Understand the infrastructure behind your applications.
 > - **DevOps Newcomers**: Transform from beginner to expert with in-depth concepts and hands-on projects.
 
+---
+
 ## 🛠️ How to Use This Repository
 
 > [!NOTE]
 > 1. **Explore the Categories**: Navigate through the folders to find the tool or technology you’re interested in.
 > 2. **Use the Repositories**: Each repository is designed to provide quick access to the most important concepts and projects.
 
+---
+
 ## 🤝 Contributions Welcome!
 
 We believe in the power of community! If you have a tip, command, or configuration that you'd like to share, please contribute to this repository. Whether it’s a new tool or an addition to an existing content, your input is valuable.
 
+---
+
 ## 📢 Stay Updated
 
 This repository is constantly evolving with new tools and updates. Make sure to ⭐ star this repo to keep it on your radar!
+
+---
 
 ## Liking the Project?
 
@@ -620,7 +647,9 @@ This repository is constantly evolving with new tools and updates. Make sure to 
 If you find this project helpful, please consider giving it a ⭐! It helps others discover the project and keeps me motivated to improve it.
 
 Thank you for your support!
+
 ---
+
 ## ✍🏼 Author
 
 ### Bala Senapathi

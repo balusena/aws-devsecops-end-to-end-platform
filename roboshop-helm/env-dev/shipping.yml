@@ -1,0 +1,31 @@
+appName: shipping
+configMapData:
+  CART_ENDPOINT: "cart:8080"
+  DB_HOST: "mysql-dev.robobal.store"
+  DB_USER: "root"
+  DB_PASS: "RoboShop@1"
+  DB_TYPE: "mysql"
+  APP_GIT_URL: "https://github.com/roboshop-devops-project-v3/shipping"
+
+service:
+  type: ClusterIP
+  port: 8080
+
+
+schema:
+  enabled: true
+  jobs:
+    - schema.sql
+    - app-user.sql
+    - master-data.sql
+
+resources:
+  requests:
+    cpu: 1800m
+    memory: 3600Mi
+  limits:
+    cpu: 2500m
+    memory: 4500Mi
+
+istio:
+  principals: ["cluster.local/ns/app/sa/roboshop-frontend"]

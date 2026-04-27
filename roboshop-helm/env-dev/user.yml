@@ -1,0 +1,20 @@
+appName: user
+configMapData:
+  MONGO: "true"
+  REDIS_URL: "redis://redis-dev.robobal.store:6379"
+  MONGO_URL: "mongodb://mongodb-dev.robobal.store:27017/users"
+
+service:
+  type: ClusterIP
+  port: 8080
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 200Mi
+  limits:
+    cpu: 200m
+    memory: 400Mi
+
+istio:
+  principals: ["cluster.local/ns/app/sa/frontend", "cluster.local/ns/app/sa/roboshop-payment"]

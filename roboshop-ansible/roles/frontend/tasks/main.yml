@@ -1,0 +1,28 @@
+- name: Load common main
+  ansible.builtin.import_role:
+    name: common
+
+- name: Load Docker
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: docker
+
+- name: Launch Docker Container
+  community.docker.docker_container:
+    name: frontend
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/frontend
+    ports:
+      - "80:80"
+    env:
+      CATALOGUE_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:CATALOGUE_HOST token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      CATALOGUE_PORT: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:CATALOGUE_PORT token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      USER_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:USER_HOST token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      USER_PORT: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:USER_PORT token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      CART_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:CART_HOST token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      CART_PORT: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:CART_PORT token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      SHIPPING_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:SHIPPING_HOST token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      SHIPPING_PORT: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:SHIPPING_PORT token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      PAYMENT_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:PAYMENT_HOST token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      PAYMENT_PORT: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/frontend:PAYMENT_PORT token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+
+

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  {{- template "app.metadata" . }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    {{ include "app.labels" . | indent 4 }}
+ports:
+  - port: {{ .Values.service.port }}
+    targetPort: {{ .Values.service.port }}

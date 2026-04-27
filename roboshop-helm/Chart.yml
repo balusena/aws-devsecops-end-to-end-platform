@@ -1,0 +1,7 @@
+apiVersion: v2
+name: roboshop-helm
+description: A Helm chart for RoboShop Project
+type: application
+version: 0.1.0
+
+

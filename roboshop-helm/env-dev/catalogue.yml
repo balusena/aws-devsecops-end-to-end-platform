@@ -1,0 +1,27 @@
+appName: catalogue
+configMapData:
+  MONGO: "true"
+  MONGO_URL: "mongodb://mongodb-dev.robobal.store:27017/catalogue"
+  DB_TYPE: "mongo"
+  APP_GIT_URL: "https://github.com/roboshop-devops-project-v3/catalogue"
+  DB_HOST: "mongodb-dev.robobal.store"
+
+service:
+  type: ClusterIP
+  port: 8080
+
+schema:
+  enabled: true
+  jobs:
+    - master-data.js
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 200Mi
+  limits:
+    cpu: 200m
+    memory: 400Mi
+
+istio:
+  principals: ["cluster.local/ns/app/sa/roboshop-frontend","cluster.local/ns/app/sa/roboshop-cart"]

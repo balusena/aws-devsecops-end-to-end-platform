@@ -1,0 +1,31 @@
+appName: frontend
+configMapData:
+  CATALOGUE_HOST : "catalogue"
+  CATALOGUE_PORT : "8080"
+  USER_HOST      : "user"
+  USER_PORT      : "8080"
+  CART_HOST      : "cart"
+  CART_PORT      : "8080"
+  SHIPPING_HOST  : "shipping"
+  SHIPPING_PORT  : "8080"
+  PAYMENT_HOST   : "payment"
+  PAYMENT_PORT   : "8080"
+
+service:
+  port: 8080
+
+ingress:
+  enabled: true
+  host: frontend-dev.robobal.store
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 200Mi
+  limits:
+    cpu: 500m
+    memory: 400Mi
+
+istio:
+  enabled: false
+  principals: ["cluster.local/ns/default/sa/ingress-nginx"]

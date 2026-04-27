@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+  {{- template "app.metadata" . }}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+     {{ include "app.labels" . | indent 6 }}
+  template:
+    metadata:
+      labels:
+        {{ include "app.labels" . | indent 8 }}
+    spec:
+      volumes:
+        - name: tmp
+          emptyDir: { }
+      containers:
+        - name: {{ .Values.appName }}
+          image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.imageTag }}
+          volumeMounts:
+            - name: tmp
+              mountPath: { { .Values.tmpDefault } }
+          envFrom:
+            secretRef:
+               name: {{ .Values.appName }}
+          readinessProbe:
+            httpGet:
+              path: /health
+              port:  {{ .Values.service.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port:  {{ .Values.service.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: { { .Values.resources.requests.cpu } }
+              memory: { { .Values.resources.requests.memory } }
+            limits:
+              cpu: { { .Values.resources.limits.cpu } }
+              memory: { { .Values.resources.limits.memory } }

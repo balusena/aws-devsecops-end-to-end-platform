@@ -1,0 +1,31 @@
+     {{- if .Values.schema.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Values.appName }}-schema
+spec:
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      securityContext:
+    runAsUser: 1000
+      containers:{{ range .Values.schema.jobs }}
+      - name: {{ . | replace ".sql" "" | replace ".js" "" }}
+        image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/{{ $.Values.appName }}-schema:latest
+        imagePullPolicy: Always
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        env:
+          - name: SCHEMA_FILE
+            value: "db/{{ . }}"
+        envFrom:
+          - secretRef:
+              name: {{ $.Values.appName }}
+      {{ end }}
+      restartPolicy: Never
+     {{- end }}
+
+

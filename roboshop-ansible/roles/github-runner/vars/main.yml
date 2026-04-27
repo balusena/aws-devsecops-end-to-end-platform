@@ -1,0 +1,14 @@
+runner_version: 2.327.1
+# Change this as per your Org Name
+github_org_name: baludevopsb85
+# Change this as per your DNS Name
+vault_url: "http://vault-internal.robobal.store:8200"
+
+lvm_disks:
+  - { vgname: RootVG, lvmname: auditVol, size: 4.40g }
+  - { vgname: RootVG, lvmname: homeVol, size: 3g }
+  - { vgname: RootVG, lvmname: logVol, size: 2g }
+  - { vgname: RootVG, lvmname: rootVol, size: 10g }
+  - { vgname: RootVG, lvmname: swapVol, size: 2g }
+  - { vgname: RootVG, lvmname: varTmpVol, size: 2g }
+  - { vgname: RootVG, lvmname: varVol, size: 22g }

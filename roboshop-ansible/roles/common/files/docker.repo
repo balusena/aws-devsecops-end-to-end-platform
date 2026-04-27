@@ -1,0 +1,5 @@
+; Ansible fetches the file from the URL you provided.
+; You don’t need to create a docker.repo file locally.
+; The content comes directly from Docker’s server.
+; It saves it to your destination path.
+; After the task runs successfully, /etc/yum.repos.d/docker.repo contains the complete Docker repo configuration.

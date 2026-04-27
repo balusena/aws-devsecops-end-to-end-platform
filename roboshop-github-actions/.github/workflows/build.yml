@@ -1,0 +1,52 @@
+on:
+  workflow_call:
+    inputs:
+      app_type:
+        required: true
+        type: string
+      app_name:
+        required: true
+        type: string
+
+jobs:
+  docker-build-push:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Dependencies
+        run: |
+          if [ "${{inputs.app_type}}" == "java" ]; then
+            mvn package
+          fi
+          if [ "${{inputs.app_type}}" == "nodejs" ]; then
+                      npm install
+          fi
+
+      - name: SonarQube Scan
+        run: |
+          echo /home/github/sonar-scanner-7.1.0.4889-linux-x64/bin/sonar-scanner -Dsonar.token=sqa_b45fbf822806c01327f8cb06d6654655704c10b3 -Dsonar.host.url=http://172.31.16.27:9000 -Dsonar.qualitygate.wait=true -Dsonar.projectKey=${{inputs.app_name}}
+
+      - name: Docker Build
+        run: |
+          docker build -t 739561048503.dkr.ecr.us-east-1.amazonaws.com/${{inputs.app_name}}:${GITHUB_SHA} .
+
+      - name: Docker Scan
+        run: |
+          trivy image 739561048503.dkr.ecr.us-east-1.amazonaws.com/${{inputs.app_name}}:${GITHUB_SHA} --ignore-unfixed #--exit-code 1
+
+      - name: Docker Push
+        run: |
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 739561048503.dkr.ecr.us-east-1.amazonaws.com
+          docker push 739561048503.dkr.ecr.us-east-1.amazonaws.com/${{inputs.app_name}}:${GITHUB_SHA}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+- name: Load common main
+  ansible.builtin.import_role:
+    name: common
+
+- name: Load Docker
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: docker
+
+- name: Launch Docker Container
+  community.docker.docker_container:
+    name: catalogue
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/catalogue
+    ports:
+      - "8080:8080"
+    env:
+      MONGO: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/catalogue:MONGO token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      MONGO_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/catalogue:MONGO_URL token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+
+
+- name: Schema Container
+  community.docker.docker_container:
+    name: catalogue-schema
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+    env:
+      DB_TYPE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/catalogue:DB_TYPE token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      APP_GIT_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/catalogue:APP_GIT_URL token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      DB_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/catalogue:DB_HOST token={{ token }} url=http://vault-internal.robobal.store:8200') }}"
+      SCHEMA_FILE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/catalogue:SCHEMA_FILE token={{ token }} url=http://vault-internal.robobal.store:8200') }}"

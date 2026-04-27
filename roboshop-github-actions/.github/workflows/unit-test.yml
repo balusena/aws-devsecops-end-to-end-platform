@@ -1,0 +1,40 @@
+on:
+  workflow_call:
+    inputs:
+      app_type:
+        required: true
+        type: string
+
+jobs:
+  java:
+    runs-on: self-hosted
+    if: inputs.app_type == 'java'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: |
+          echo mvn test
+
+  nodejs:
+    runs-on: self-hosted
+    if: inputs.app_type == 'nodejs'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo npm test
+
+  python:
+    runs-on: self-hosted
+    if: inputs.app_type == 'python'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo python -m unittest test-cases.py
+
+  nginx:
+    runs-on: self-hosted
+    if: inputs.app_type == 'nginx'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Nothing to do

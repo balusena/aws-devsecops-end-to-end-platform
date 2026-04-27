@@ -1,0 +1,10 @@
+variable "ami" {}
+variable "databases" {}
+variable "env" {}
+variable "zone_id" {}
+variable "zone_name" {}
+variable "token" {}
+variable "eks" {}
+variable "vpc" {}
+variable "bastion_nodes" {}
+variable "kms_arn_id" {}

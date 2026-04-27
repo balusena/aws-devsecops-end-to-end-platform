@@ -1,0 +1,20 @@
+appName: cart
+configMapData:
+  REDIS_HOST: "redis-dev.robobal.store"
+  CATALOGUE_HOST: "catalogue"
+  CATALOGUE_PORT: "8080"
+  
+service:
+  type: ClusterIP
+  port: 8080
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 200Mi
+  limits:
+    cpu: 200m
+    memory: 400Mi
+
+istio:
+  principals: ["cluster.local/ns/app/sa/roboshop-frontend", "cluster.local/ns/app/sa/roboshop-payment", "cluster.local/ns/app/sa/roboshop-shipping"]

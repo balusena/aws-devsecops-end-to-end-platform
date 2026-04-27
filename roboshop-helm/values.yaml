@@ -1,0 +1,11 @@
+schema:
+  enabled: false
+
+ingress:
+  enabled: false
+
+tmpDefault: /tmp
+
+istio:
+  enabled: true
+  principals: []

@@ -1,0 +1,35 @@
+on:
+  workflow_call:
+    inputs:
+      app_name:
+        required: true
+        type: string
+      app_env:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: baluudevopsb85/roboshop-helm
+          path: helm
+
+      - name: Deploy
+        run: |
+          cd helm
+          aws eks update-kubeconfig --name dev
+          argocd login argocd-dev.robobal.store --insecure --username admin --password $(kubectl get secrets -n tools argocd-initial-admin-secret -o=jsonpath='{.data.password}' | base64 -d) --grpc-web
+          argocd app create ${{ inputs.app_name }} \
+            --repo https://github.com/baluudevopsb85/roboshop-helm \
+            --path . \
+            --dest-namespace default \
+            --dest-server https://kubernetes.default.svc \
+            --values env-dev/${{ inputs.app_name }}.yml \
+            --helm-set imageTag=${GITHUB_SHA} \
+            --sync-policy automatic \
+            --upsert

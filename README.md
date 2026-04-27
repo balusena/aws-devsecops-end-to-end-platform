@@ -380,7 +380,7 @@ aws-devsecops-end-to-end-platform/
 ## 🔹 How Everything Works Together
 
 1. **Packer builds images → `roboshop-packer-images`**
-    - ● Creates AMIs for EC2 instances and EKS nodes with pre-installed dependencies and security hardening.
+    - Creates AMIs for EC2 instances and EKS nodes with pre-installed dependencies and security hardening.
 
 2. **Terraform creates infrastructure → `roboshop-terraform`**
     - Provisions EC2 instances, VPCs, subnets, route tables, EKS cluster with node groups, and supporting tools like Vault, ELK stack, and GitHub Runner.

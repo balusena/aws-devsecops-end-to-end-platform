@@ -479,7 +479,7 @@ aws-devsecops-end-to-end-platform/
 
 ![roboshop-application-flow](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-application-flow.png)
 
-** ==> Screenshot displaying Roboshop landing page and list of Categories:**
+- ==> Screenshot displaying Roboshop landing page and list of Categories:
 
 ![roboshop-landing-page-categories-list](https://raw.githubusercontent.com/balusena/aws-devsecops-end-to-end-platform/main/images/app/roboshop-landing-page-categories-list.png)
 

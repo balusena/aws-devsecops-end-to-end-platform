@@ -11,6 +11,338 @@ Traffic management uses **ALB** for external requests (Layer-7) and **NLB** for 
 Overall, Roboshop combines **automation, scalability, security, and observability** to deliver a robust, highly available e-commerce platform on AWS.
 
 
+## 📂 Project Structure
+
+```text
+
+aws-devsecops-end-to-end-platform/
+│
+├── roboshop-packer-images/
+│   ├── golden-image-ansible/
+│   │   └── ansible.pkr.hcl
+│   │
+│   ├── roles/
+│   │   └── rhel9-hardended/
+│   │       └── tasks/
+│   │           └── main.yml
+│   │
+│   └── main.yml
+│
+├── roboshop-config-values/
+│   ├── main.tf
+│   ├── Makefile
+│   ├── terraform.tf
+│   └── variables.tf
+│
+├── roboshop-ansible/
+│   ├── Makefile
+│   ├── roboshop.yml
+│   │
+│   └── roles/
+│       ├── cart/
+│       │   ├── tasks/main.yml
+│       │   └── templates/cart.service
+│       │
+│       ├── catalogue/
+│       │   ├── files/mongo.repo
+│       │   ├── tasks/main.yml
+│       │   ├── templates/catalogue.service
+│       │   └── vars/main.yml
+│       │
+│       ├── common/
+│       │   ├── defaults/main.yml
+│       │   ├── files/docker.repo
+│       │   ├── node_exporter.service
+│       │   └── tasks/
+│       │       ├── app-prereq.yml
+│       │       ├── docker.yml
+│       │       ├── lvm.yml
+│       │       ├── main.yml
+│       │       ├── maven.yml
+│       │       ├── node_exporter.yml
+│       │       ├── nodejs.yml
+│       │       ├── python.yml
+│       │       └── systemd.yml
+│       │
+│       ├── elk/
+│       │   ├── tasks/main.yml
+│       │   └── templates/
+│       │       ├── beats.conf
+│       │       ├── elastic.repo
+│       │       └── nginx.conf
+│       │
+│       ├── frontend/
+│       │   ├── tasks/main.yml
+│       │   ├── templates/nginx.conf
+│       │   └── vars/main.yml
+│       │
+│       ├── github-runner/
+│       │   ├── tasks/main.yml
+│       │   ├── templates/docker.service
+│       │   ├── github-runner.service
+│       │   └── vars/main.yml
+│       │
+│       ├── mongodb/
+│       │   ├── files/mongo.repo
+│       │   ├── meta/main.yml
+│       │   ├── tasks/main.yml
+│       │   └── vars/main.yml
+│       │
+│       ├── mysql/
+│       │   ├── meta/main.yml
+│       │   ├── tasks/main.yml
+│       │   └── vars/main.yml
+│       │
+│       ├── payment/
+│       │   ├── tasks/main.yml
+│       │   ├── templates/payment.service
+│       │   └── vars/main.yml
+│       │
+│       ├── rabbitmq/
+│       │   ├── files/eabbitmq.repo
+│       │   ├── mets/main.yml
+│       │   ├── tasks/main.yml
+│       │   └── vars/main.yml
+│       │
+│       ├── redis/
+│       │   ├── meta/main.yml
+│       │   ├── tasks/main.yml
+│       │   └── vars/main.yml
+│       │
+│       ├── shipping/
+│       │   ├── tasks/main.yml
+│       │   ├── templates/shipping.service
+│       │   └── vars/main.yml
+│       │
+│       ├── user/
+│       │   ├── tasks/main.yml
+│       │   ├── templates/user.service
+│       │   └── vars/main.yml
+│       │
+│       └── vault/
+│           ├── files/hashicorp.repo
+│           ├── files/vault.hcl
+│           └── tasks/main.yml
+│
+├── roboshop-terraform/
+│   ├── .github/workflows/
+│   │   ├── apply.yml
+│   │   ├── destroy.yml
+│   │   └── helm-apply.yml
+│   │
+│   ├── environments/
+│   │   ├── dev/
+│   │   │   ├── main.tfvars
+│   │   │   └── state.tfvars
+│   │   └── prod/
+│   │       ├── main.tfvars
+│   │       └── state.tfvars
+│   │
+│   ├── helm-charts/
+│   │   ├── environments/
+│   │   │   ├── dev/
+│   │   │   │   ├── main.tfvars
+│   │   │   │   └── state.tfvars
+│   │   │   └── prod/
+│   │   │       ├── main.tfvars
+│   │   │       └── state.tfvars
+│   │   │
+│   │   ├── helm-values/
+│   │   │   ├── argo.yml
+│   │   │   ├── cluster-issuer.yml
+│   │   │   ├── filebeat.yml
+│   │   │   ├── ingress.yml
+│   │   │   └── kube-stack.yml
+│   │   │
+│   │   ├── alb.tf
+│   │   ├── data.tf
+│   │   ├── helm.tf
+│   │   ├── iam.tf
+│   │   ├── locals.tf
+│   │   ├── Makefile
+│   │   ├── provider.tf
+│   │   └── variable.tf
+│   │
+│   ├── modules/
+│   │   ├── ec2/
+│   │   │   ├── data.tf
+│   │   │   ├── iam.tf
+│   │   │   ├── local.tf
+│   │   │   ├── locals.tf
+│   │   │   ├── main.tf
+│   │   │   └── variables.tf
+│   │   │
+│   │   ├── eks/
+│   │   │   ├── iam.tf
+│   │   │   ├── main.tf
+│   │   │   └── variables.tf
+│   │   │
+│   │   ├── vpc/
+│   │   │   ├── locals.tf
+│   │   │   ├── main.tf
+│   │   │   ├── outputs.tf
+│   │   │   └── variables.tf
+│   │   │
+│   │   └── tools/
+│   │       ├── main.tf
+│   │       ├── outputs.tf
+│   │       └── variables.tf
+│   │
+│   ├── main.tf
+│   ├── Makefile
+│   ├── provider.tf
+│   └── variables.tf
+│
+├── roboshop-helm/
+│   ├── env-dev/
+│   │   ├── cart.yml
+│   │   ├── catalogue.yml
+│   │   ├── frontend.yml
+│   │   ├── payment.yml
+│   │   ├── shipping.yml
+│   │   └── user.yml
+│   │
+│   ├── templates/
+│   │   ├── _helpers.tpl
+│   │   ├── database-job.yml
+│   │   ├── deploy.yml
+│   │   ├── external-secret.yml
+│   │   ├── hpa.yml
+│   │   ├── ingress.yaml
+│   │   ├── istio.yaml
+│   │   ├── service.yml
+│   │   └── service-account.yaml
+│   │
+│   ├── Chart.yml
+│   ├── Makefile
+│   └── value.yaml
+│
+└── APP/
+    │
+    ├── roboshop-cart/
+    │   ├── .github/workflows/
+    │   │   ├── app-cicd-main.yml
+    │   │   ├── cicd-branch.yml
+    │   │   └── deploy.yml
+    │   ├── Dockerfile
+    │   ├── packer.json
+    │   └── server.js
+    │
+    ├── roboshop-catalogue/
+    │   ├── .github/workflows/
+    │   │   ├── cicd-branch.yml
+    │   │   ├── cicd-main.yml
+    │   │   ├── deploy.yml
+    │   │   └── schema-image-build.yml
+    │   ├── db/
+    │   │   ├── Dockerfile
+    │   │   ├── master-data.js
+    │   │   ├── mongo.repo
+    │   │   └── run.sh
+    │   ├── Dockerfile
+    │   ├── package.json
+    │   └── server.js
+    │
+    ├── roboshop-dispatch/
+    │   └── main.go
+    │
+    ├── roboshop-frontend/
+    │   ├── .github/workflows/
+    │   │   ├── cicd-branch.yml
+    │   │   ├── cicd-main.yml
+    │   │   └── deploy.yml
+    │   │
+    │   ├── css/
+    │   │   ├── auto-complete.css
+    │   │   └── style.css
+    │   │
+    │   ├── js/
+    │   │   ├── auto-complete.js
+    │   │   └── controller.js
+    │   │
+    │   ├── images/
+    │   │   ├── Aplha.png
+    │   │   ├── CNA.png
+    │   │   ├── EMM.png
+    │   │   ├── EPE.png
+    │   │   ├── Ewooid.png
+    │   │   ├── HPTD.png
+    │   │   ├── placeholder.png
+    │   │   ├── RED.png
+    │   │   ├── RMC.png
+    │   │   ├── SHCE.png
+    │   │   ├── STAN-1.png
+    │   │   ├── UHJ.png
+    │   ├── media/
+    │   │   ├── graph.png
+    │   │   ├── instana_icon_square.png
+    │   │   └── stan.png
+    │   │
+    │   ├── cart.html
+    │   ├── empty.html
+    │   ├── eum.html
+    │   ├── index.html
+    │   ├── login.html
+    │   ├── payment.html
+    │   ├── product.html
+    │   ├── search.html
+    │   ├── shipping.html
+    │   ├── splash.html
+    │   ├── Dockerfile
+    │   └── nginx.conf
+    │
+    ├── roboshop-payment/
+    │   ├── .github/workflows/
+    │   │   ├── cicd-branch.yml
+    │   │   ├── cicd-main.yml
+    │   │   └── deploy.yml
+    │   ├── Dockerfile
+    │   ├── payment.ini
+    │   ├── payment.py
+    │   ├── rabbitmq.py
+    │   └── requirements.txt
+    │
+    ├── roboshop-shipping/
+    │   ├── .github/workflows/
+    │   │   ├── cicd-branch.yml
+    │   │   ├── cicd-main.yml
+    │   │   ├── deploy.yml
+    │   │   └── schema-image-build.yml
+    │   │
+    │   ├── db/
+    │   │   ├── app-user.sql
+    │   │   ├── master-data.sql
+    │   │   ├── schema.sql
+    │   │   └── run.sh
+    │   │
+    │   ├── src/main/java/com/instana/roboshop/shipping/
+    │   │   ├── Calculator.java
+    │   │   ├── CartHelper.java
+    │   │   ├── City.java
+    │   │   ├── CityRepository.java
+    │   │   ├── Code.java
+    │   │   ├── CodeRepository.java
+    │   │   ├── Controller.java
+    │   │   ├── JpaConfig.java
+    │   │   ├── RetryableDataSource.java
+    │   │   ├── Ship.java
+    │   │   ├── ShippingServiceApplication.java
+    │   │
+    │   ├── src/main/resources/application.properties
+    │   ├── Dockerfile
+    │   ├── pom.xml
+    │   └── run.sh
+    │
+    └── roboshop-user/
+        ├── .github/workflows/
+        │   ├── app-cicd-main.yml
+        │   ├── cicd-branch.yml
+        │   └── deploy.yml
+        ├── Dockerfile
+        ├── packer.json
+        └── server.js
+        
+```
 ## 📊 Architecture Diagram
 
 ![Architecture](https://github.com/balusena/aws-devsecops-end-to-end-platform/blob/main/roboshop_architecture.png)

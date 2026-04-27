@@ -1,0 +1,10 @@
+name: CICD - Branch
+on:
+  push:
+    branches-ignore:
+      - main
+
+  workflow_dispatch:
+jobs:
+  reuse:
+    uses: baludevopsb85/roboshop-github-actions/.github/workflows/cicd-branch.yml@main

@@ -1,0 +1,10 @@
+name: Deploy - Dev
+on:
+  workflow_dispatch:
+
+jobs:
+  reuse:
+    uses: baluudevopsb85/roboshop-github-actions/.github/workflows/deploy.yml@main
+    with:
+      app_name: frontend
+      app_env: dev

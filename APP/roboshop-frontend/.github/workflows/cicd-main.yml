@@ -1,0 +1,12 @@
+name: CICD - Main
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  reuse:
+    uses: baludevopsb85/roboshop-github-actions/.github/workflows/ci-main.yml@main
+    with:
+      app_type: nginx
+      app_name: frontend

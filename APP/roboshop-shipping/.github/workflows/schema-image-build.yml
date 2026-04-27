@@ -1,0 +1,14 @@
+name: Schema Image Build
+on:
+  workflow_dispatch:
+jobs:
+  docker-build-push:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker Build
+        run: |
+          cd db
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 739561048503.dkr.ecr.us-east-1.amazonaws.com
+          docker build -t 739561048503.dkr.ecr.us-east-1.amazonaws.com/shipping-schema:latest .
+          docker push 739561048503.dkr.ecr.us-east-1.amazonaws.com/shipping-schema:latest

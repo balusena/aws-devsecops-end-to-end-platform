@@ -666,4 +666,4 @@ DevSecOps Engineer | Cloud & Automation | MLOps | AIOps | GitOps Specialist
 ![Author Image](https://github.com/balusena/aws-devsecops-end-to-end-platform/blob/main/banner.png)
 
 ---
-Made with ❤️ and passion to contribute to the DevOps community by [Bala Senapathi](https://github.com/balusena)
+Made with ❤️ and passion to contribute to the DevSecOps community by [Bala Senapathi](https://github.com/balusena)

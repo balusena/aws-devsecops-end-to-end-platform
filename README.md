@@ -351,6 +351,14 @@ aws-devsecops-end-to-end-platform/
 
 ![Architecture](https://github.com/balusena/aws-devsecops-end-to-end-platform/blob/main/roboshop_architecture.png)
 
+---
+
+## ⚙️ DevSecOps CI/CD Workflow
+
+![CI/CD Pipeline](https://github.com/balusena/aws-devsecops-end-to-end-platform/blob/main/roboshop_cicd.png)
+
+---
+
 ## 🔗 Tools Tech Stack
 
 - **Cloud:** AWS (EKS, EC2, VPC, ALB, NLB, KMS, WAF)
